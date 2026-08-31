@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Konstantin Nadolin</title>
+<style>
+  * { box-sizing: border-box; }
+
+  html, body {
+    -webkit-user-select: none; /* Safari, Chrome, Opera */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE / Edge */
+    user-select: none;         /* Стандартное свойство */
+}
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: top;
+    gap: 0;
+    background: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    
+  }
+
+  .volume-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 5px;
+    border-bottom: 1px solid #000000;
+  }
+
+  .volume-control span {
+    font-size: 3px;
+    color: #555;
+    font-style: italic;
+  }
+
+  .volume-control input[type="range"] {
+    flex: 1;
+    max-width: 100px;
+    height: 1px;
+    accent-color: #000000;
+  }
+
+  .box {
+    width: 100%;
+    background: #ffffff;
+    cursor: pointer;
+    padding: 0;
+    border-bottom: 1px solid #000000;
+  }
+
+  .box h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 100;
+    color: #222;
+    font-style: italic;
+  }
+
+  h2{
+    padding: 0 5px;
+  }
+
+  .text{
+    font-weight: 100;
+    font-size: 16px;
+  }
+
+  .box-inner {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .box-inner p {
+    margin: 10px 0 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+  }
+
+  .box-content {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    margin-bottom: 5px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border: none;
+    outline: none;
+
+    /* скрываем скроллбар, но скролл остаётся рабочим */
+    scrollbar-width: none;       /* Firefox */
+    -ms-overflow-style: none;    /* старый Edge / IE */
+  }
+
+  .box-content::-webkit-scrollbar {
+    display: none;               /* Chrome, Safari */
+  }
+
+  .box-content video {
+    cursor: pointer;
+    flex-shrink: 0;
+    display: block;
+    border: none;
+    outline: none;
+  }
+
+  .spacing {
+    height:100%;
+    width: 5px; /* отступ между видео */
+  }
+  
+  .vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .horizontal {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+  }
+
+  .vertical-sticker {
+    display: flex;
+    flex-direction: column;
+    gap:0;
+  }
+
+  .vertspace {
+    flex: 1;
+  }
+
+  .bottom{
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: bottom;
+    flex-direction: row;
+    gap: 5px;
+    font-size: 20px;
+    font-weight: 100;
+    color: #222;
+    font-style: italic;
+    
+  }
+  
+  p{
+    
+    margin:  0 0 5px 5px;
+  }
+
+  a{
+    text-decoration: none;
+    color: #5c5c5c;
+  }
+
+
+</style>
+</head>
+<body>
+
+<div class="volume-control">
+  <input type="range" id="volume-slider" min="0" max="100" value="0" data-volume-slider>
+</div>
+
+<div class="box" data-box>
+  <h2>"mesu no esa"</h2>
+  <div class="box-inner" data-inner>
+    <div class="box-content">
+      <div class="spaceing"></div>
+      <video src="video/DJdiva.mp4" muted playsinline width="640" data-video>
+        Ваш браузер не поддерживает тег video.
+      </video>
+      <video src="video/doc_2026-08-30_13-07-53.mp4" muted playsinline width="640" data-video>
+        Ваш браузер не поддерживает тег video.
+      </video>
+      <div class="spaceing"></div>
+    </div>
+  </div>
+</div>
+
+<div class="box" data-box>
+  <h2>daily slime</h2>
+  <div class="box-inner" data-inner>
+    <div class="box-content">
+      <div class="spaceing"></div>
+      <div class="vertical">
+      <video src="video/12.mp4" muted playsinline width="640" data-video>
+        Ваш браузер не поддерживает тег video.
+      </video>
+      <video src="video/242.mp4" muted playsinline width="640" data-video>
+        Ваш браузер не поддерживает тег video.
+      </video>
+      <div class="text">Audio visualizers for Daily Slime's Telegram channel and DJ set backgrounds<br>featuring the artist's identity and British symbolism.<br>(TouchDesigner)</div>
+      </div>
+      <video src="video/392.mp4" muted playsinline width="640" data-video>
+        Ваш браузер не поддерживает тег video.
+      </video>
+      <video src="video/Video Project.mp4" muted playsinline height="640" data-video>
+        Ваш браузер не поддерживает тег video.
+      </video>
+      <video src="video/395348.mp4" muted playsinline width="640" data-video>
+        Ваш браузер не поддерживает тег video.
+      </video>
+      
+      
+      <div class="spaceing"></div>
+    </div>
+  </div>
+</div>
+
+<div class="box" data-box>
+  <h2>lilium</h2>
+  <div class="box-inner" data-inner>
+    <div class="box-content">
+      <div class="spaceing"></div>
+      <div class="vertical-sticker">
+      <img src="img/sticker.webp" width="200"></img>
+      <img src="img/sticker1.webp" width="200"></img>
+      <img src="img/sticker2.webp" width="200"></img>
+      <img src="img/sticker3.webp" width="200"></img>
+      <img src="img/sticker4.webp" width="200"></img>
+      </div>
+      <div class ="spaceing"></div>
+      <div class="vertical">
+        <div class = "text">A sticker set for the Lilium <br>clothing collection launch. Features <br>a 5-sticker vertical mosaic alongside <br>individual stickers of each design element.<br>(Affinity / Figma)</div>
+
+        <img src="img/Background.png" width="260"></img>
+
+        <img src="img/Docum7ent.png" width="260"></img>
+        <img src="img/Document.png" width="260"></img>
+        <img src="img/Documentt.png" width="260"></img>
+        
+      </div>
+      <div class ="spaceing"></div>
+      <div class="vertical">
+        <img src="img/sticker8.webp" width="260"></img>
+        <img src="img/sticker6.webp" width="240"></img>
+        <img src="img/sticker7.webp" width="240"></img>
+      </div>
+      <div class="spaceing"></div>
+    </div>
+  </div>
+</div>
+
+<div class="box" data-box>
+  <h2>sir soylok and glukoza stickerpack</h2>
+  <div class="box-inner" data-inner>
+    <div class="box-content">
+      <div class="spaceing"></div>
+      <div class="vertical">
+      <div class = "text">A sticker pack for Soylok and Glukoza.<br>The concept combines Frutiger Aero aesthetics with<br>industrial-cyberpunk visual style of Glukoza's recent releases. <br>Xbox 360 dashboard UI was used as the main reference.<br>(Affinity / Figma)</div>
+
+      <img src="img/гербера.png" width="340"></img>
+      <img src="img/Document1.jpg" width="340"></img>
+
+      </div>
+      <div class="vertical">
+        <img src="img/контейнер.png" width="340"></img>
+
+        <img src="img/сверху.png" width="340"></img>
+      <img src="img/сбоку.png" width="340"></img>
+      </div>
+      <div class="spaceing"></div>
+    </div>
+  </div>
+</div>
+
+<div class="box" data-box>
+  <h2>sir soylok</h2>
+  <div class="box-inner" data-inner>
+    <div class="box-content">
+      <div class="spaceing"></div>
+      <div class="vertical">
+      <div class = "text">Collection of postprocessed videos, audiovisuals and conceps for sir soylok<br>(Touchdesigner / DavinciResolve / Blender)</div>
+
+      <video src="video/circle soylok.mp4.mov" muted playsinline width="600" data-video>
+        Ваш браузер не поддерживает тег video.
+      </video>
+      <div class = "text">Audiovisualizator for Online Songs 5 release with album relatated flowers, vine and color palette. Video is aimed to use with circilar cropping.</div>
+      </div>
+      <div class="vertical">
+      <div class = "text">Three videos using the characteristic multi-colored balls/circles that are present in the artist's works, including as an imitation of paint stains that are also often found in the musician's visuals.</div>
+
+      <video src="video/IMG_7401.MP4" muted playsinline width="350" data-video>
+        Ваш браузер не поддерживает тег video.
+      </video>
+
+      </div>
+      <div class="vertical">
+      <video src="video/doc_2026-08-30_18-31-28.mp4" muted playsinline width="325" data-video>
+        Ваш браузер не поддерживает тег video.
+      </video>
+      <video src="video/IMG_7464.MP4" muted playsinline height="325" data-video>
+        Ваш браузер не поддерживает тег video.
+      </video>
+      </div>
+
+      <div class="vertical">
+
+      <video src="video/IMG_7437.MP4" muted playsinline width="500" data-video>
+        Ваш браузер не поддерживает тег video.
+      </video>
+      <div class = "text">Final video (above) and concept tests. Combining vector geometry with footage and partial or complete obscuring of the face</div>
+      </div>
+
+      <div class="vertical">
+      <video src="video/soylok_track_audio_converted_converted.mp4" muted playsinline height="160" data-video>
+        Ваш браузер не поддерживает тег video.
+      </video>
+      <video src="video/soylok_track_audio2_converted_converted.mp4" muted playsinline height="160" data-video>
+        Ваш браузер не поддерживает тег video.
+      </video>
+      <video src="video/soylok_track_audio3_converted_converted.mp4" muted playsinline height="160" data-video>
+        Ваш браузер не поддерживает тег video.
+      </video>
+      <video src="video/soylok_track_converted_converted.mp4" muted playsinline height="160" data-video>
+        Ваш браузер не поддерживает тег video.
+      </video>
+      </div>
+
+
+      <div class="vertical">
+      <div class = "text">continuation of the idea of ​​incorporating simple geometry into the environment</div>
+      <video src="video/цукцукцукц.mp4" muted playsinline height="325" data-video>
+        Ваш браузер не поддерживает тег video.
+      </video>
+      <video src="video/soylok_flower_converted.mp4" muted playsinline height="325" data-video>
+        Ваш браузер не поддерживает тег video.
+      </video>
+      </div>
+      
+      
+
+      <div class="vertical">
+      <div class = "text">Test videos</div>
+      
+      <video src ="video/urehgf.mp4" muted playsinline height="325" data-video>
+        Ваш браузер не поддерживает тег video.
+      </video>
+      <video src="video/oqwiejwerwwererweref.mp4" muted playsinline height="325" data-video>
+        Ваш браузер не поддерживает тег video.
+      </video>
+      </div>
+      <div class="vertical">
+      
+      
+      <video src="video/soylok_boom_converted_converted.mp4" muted playsinline height="325" data-video>
+        Ваш браузер не поддерживает тег video.
+      </video>
+      </div>
+
+      <div class="spaceing"></div>
+    </div>
+  </div>
+</div>
+
+<div class="box" data-box>
+  <h2>haski</h2>
+  <div class="box-inner" data-inner>
+    <div class="box-content">
+      <div class="spaceing"></div>
+      
+      <div class="vertical">
+      <div class = "text">Post-processing of the videos form Haski's photosesion<br>(TouchDesigner)</div>
+      <video src="video/Timeline 1.mp4" muted playsinline width="640" data-video>
+        Ваш браузер не поддерживает тег video.
+      </video>
+      </div>
+
+      <div class="vertical">
+      <video src="video/IMG_4704.MP4" muted playsinline width="450" data-video>
+        Ваш браузер не поддерживает тег video.
+      </video>
+      
+      <video src="video/IMG_4703.MP4" muted playsinline width="450" data-video>
+        Ваш браузер не поддерживает тег video.
+      </video>
+      </div>
+      <video src="video/IMG_4702.MP4" muted playsinline width="640" data-video>
+        Ваш браузер не поддерживает тег video.
+      </video>
+      
+      <div class="spaceing"></div>
+    </div>
+  </div>
+</div>
+
+<div class = "vertspace"></div>
+<div class = "bottom">
+  <p>tg:<a href="https://t.me/d4l3k0" target="_blank" rel="noopener noreferrer">@d4l3k0</a></p>
+  <p>ig:<a href="https://t.me/d4l3k0" target="_blank" rel="noopener noreferrer">@d4l3k0</a></p>
+</div>
+
+<script>
+  const boxes = document.querySelectorAll('[data-box]');
+  const volumeSlider = document.querySelector('[data-volume-slider]');
+  const VOLUME_STORAGE_KEY = 'page-volume';
+  const DEFAULT_VOLUME = 30;
+
+  function closeBox(box) {
+    const inner = box.querySelector('[data-inner]');
+    inner.style.maxHeight = '0px';
+
+    // ставим на паузу все видео внутри закрытого блока
+    box.querySelectorAll('[data-video]').forEach(v => v.pause());
+  }
+
+  function openBox(box) {
+    const inner = box.querySelector('[data-inner]');
+
+    // сначала запускаем видео (если есть), чтобы их размер учёлся в scrollHeight
+    playVideosSequentially(box);
+
+    inner.style.maxHeight = inner.scrollHeight + 'px';
+  }
+
+  // проигрывает видео внутри блока по очереди: следующее стартует, когда закончилось предыдущее
+  function playVideosSequentially(box) {
+    const videos = Array.from(box.querySelectorAll('[data-video]'));
+    if (videos.length === 0) return;
+
+    videos.forEach(v => {
+      v.pause();
+      v.currentTime = 0;
+      v.onended = null;
+    });
+
+    let index = 0;
+
+    function playNext() {
+      if (index >= videos.length) return;
+      const current = videos[index];
+      current.play();
+      current.onended = () => {
+        index++;
+        playNext();
+      };
+    }
+
+    playNext();
+  }
+
+  boxes.forEach(box => {
+    box.addEventListener('click', (e) => {
+      // клик по видео не должен сворачивать/разворачивать блок — только play/pause этого видео
+      if (e.target.closest('[data-video]')) {
+        const video = e.target.closest('[data-video]');
+        if (video.paused) {
+          video.play();
+        } else {
+          video.pause();
+        }
+        return;
+      }
+
+      const inner = box.querySelector('[data-inner]');
+      const isOpen = inner.style.maxHeight && inner.style.maxHeight !== '0px';
+
+      boxes.forEach(closeBox);
+
+      if (!isOpen) {
+        openBox(box);
+      }
+    });
+  });
+
+  // одновременно может играть только одно видео на всей странице:
+  // как только какое-то видео начинает играть — все остальные ставятся на паузу
+  document.querySelectorAll('[data-video]').forEach(video => {
+    video.addEventListener('play', () => {
+      document.querySelectorAll('[data-video]').forEach(other => {
+        if (other !== video && !other.paused) {
+          other.pause();
+        }
+      });
+    });
+  });
+
+  // слайдер громкости управляет всеми видео на странице сразу
+  function applyVolume(value) {
+    const volume = value / 100;
+    document.querySelectorAll('[data-video]').forEach(v => {
+      v.volume = volume;
+      v.muted = volume === 0;
+    });
+  }
+
+  // читаем сохранённую громкость из localStorage, если её нет — используем 30% по умолчанию
+  function loadVolume() {
+    const saved = localStorage.getItem(VOLUME_STORAGE_KEY);
+    const value = saved !== null ? Number(saved) : DEFAULT_VOLUME;
+    return Number.isFinite(value) ? Math.min(100, Math.max(0, value)) : DEFAULT_VOLUME;
+  }
+
+  function saveVolume(value) {
+    localStorage.setItem(VOLUME_STORAGE_KEY, value);
+  }
+
+  volumeSlider.addEventListener('input', (e) => {
+    applyVolume(e.target.value);
+    saveVolume(e.target.value);
+  });
+
+  // при загрузке страницы подставляем сохранённое значение (или 30% по умолчанию)
+  const initialVolume = loadVolume();
+  volumeSlider.value = initialVolume;
+  applyVolume(initialVolume);
+
+  // прокрутка box-content колесом мыши (вертикальный скролл превращаем в горизонтальный),
+  // с плавной анимацией вместо мгновенного скачка
+  document.querySelectorAll('.box-content').forEach(content => {
+    let target = content.scrollLeft;
+    let animating = false;
+
+    function animate() {
+      const current = content.scrollLeft;
+      const diff = target - current;
+
+      // если почти доехали — останавливаем анимацию
+      if (Math.abs(diff) < 0.5) {
+        content.scrollLeft = target;
+        animating = false;
+        return;
+      }
+
+      content.scrollLeft = current + diff * 0.18; // коэффициент сглаживания
+      requestAnimationFrame(animate);
+    }
+
+    content.addEventListener('wheel', (e) => {
+      if (content.scrollWidth <= content.clientWidth) return; // переполнения нет — ничего не делаем
+
+      e.preventDefault();
+
+      const maxScroll = content.scrollWidth - content.clientWidth;
+      target = Math.min(maxScroll, Math.max(0, target + e.deltaY));
+
+      if (!animating) {
+        animating = true;
+        requestAnimationFrame(animate);
+      }
+    }, { passive: false });
+  });
+</script>
+
+</body>
+</html>
